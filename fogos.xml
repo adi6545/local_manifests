@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Remote Github source declaration -->
+  <remote name="adi6545" fetch="https://github.com/adi6545" />
+
+  <!-- (fogos) Repositories -->
+  <project path="device/motorola/fogos" name="android_device_motorola_fogos" remote="adi6545" revision="lineage-22.1" />
+  <project path="kernel/motorola/fogos" name="android_kernel_motorola_fogos" remote="adi6545" revision="lineage-22.1" />
+  <project path="vendor/motorola/fogos" name="android_vendor_motorola_fogos" remote="adi6545" revision="lineage-22.1" />
+</manifest>
