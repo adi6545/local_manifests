@@ -1,0 +1,30 @@
+name: Build PixelOS on Crave
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Crave CLI & Config
+        run: |
+          mkdir -p ~/.crave
+          echo "${{ secrets.CRAVE_CONF }}" > ~/.crave/crave.conf
+          sudo curl -s https://raw.githubusercontent.com/accupara/crave/main/crave -o /usr/local/bin/crave
+          sudo chmod +x /usr/local/bin/crave
+
+      - name: Run Crave Build
+        run: |
+          crave run --no-patch --clean " \
+            mkdir -p PixelOS && cd PixelOS && \
+            repo init -u https://github.com/PixelOS-AOSP/android_manifest.git -b sixteen --git-lfs && \
+            mkdir -p .repo/local_manifests && \
+            curl -s https://raw.githubusercontent.com/adi6545/local_manifests/main/fogos.xml -o .repo/local_manifests/fogos.xml && \
+            /opt/crave/resync.sh && \
+            source build/envsetup.sh && \
+            lunch pixelos_fogos-userdebug && \
+            mka bacon"
