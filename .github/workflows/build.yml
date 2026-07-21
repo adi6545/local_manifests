@@ -13,11 +13,15 @@ jobs:
 
       - name: Install Crave
         run: |
-          mkdir -p ~/.crave
-          echo "${{ secrets.CRAVE_CONF }}" > ~/.crave/crave.conf
+          # Create correct config directory
+          mkdir -p ~/.config/crave
+          echo "${{ secrets.CRAVE_CONF }}" > ~/.config/crave/crave.conf
+          echo "${{ secrets.CRAVE_CONF }}" > ~/.crave.conf
 
+          # Download and set up Crave CLI
           curl -sL https://raw.githubusercontent.com/accupara/crave/master/get_crave.sh | bash
-          sudo mv crave /usr/local/bin/
+          chmod +x crave 2>/dev/null || chmod +x devspace 2>/dev/null || true
+          sudo mv crave /usr/local/bin/ 2>/dev/null || sudo mv devspace /usr/local/bin/crave 2>/dev/null || true
 
       - name: Build PixelOS
         run: |
@@ -44,3 +48,4 @@ jobs:
 
           m bacon
           "
+          
