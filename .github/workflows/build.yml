@@ -1,7 +1,7 @@
 name: Crave ROM Build
 
 on:
-  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,12 +15,19 @@ jobs:
         run: |
           mkdir -p ~/.config/crave
           echo "${{ secrets.CRAVE_CONF }}" > ~/.config/crave/crave.conf
-          curl -s https://raw.githubusercontent.com/accupara/crave/main/get_crave.sh | bash
-          sudo mv crave /usr/local/bin/
+          
+          # Download Crave binary explicitly
+          curl -sL https://raw.githubusercontent.com/accupara/crave/main/get_crave.sh | bash
+          
+          # Ensure execution permissions and move to binary path
+          chmod +x crave || chmod +x devspace || true
+          sudo mv crave /usr/local/bin/ 2>/dev/null || sudo mv devspace /usr/local/bin/crave 2>/dev/null || true
+          
+          # Verify installation
+          which crave || echo "Crave binary missing!"
 
       - name: DevSpace / Build Execution
         run: |
-          # Pull workspace and run build on Crave
           crave run --no-patch -- "
             repo init -u https://github.com/PixelOS-AOSP/manifest.git -b fifteen --git-lfs
             crave pull .repo/local_manifests/
@@ -29,3 +36,4 @@ jobs:
             lunch pixelos_fogos-userdebug
             mka bacon
           "
+          
