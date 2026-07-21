@@ -14,8 +14,8 @@ jobs:
         run: |
           mkdir -p ~/.crave
           echo "${{ secrets.CRAVE_CONF }}" > ~/.crave/crave.conf
-          sudo curl -sL https://raw.githubusercontent.com/accupara/crave/master/crave -o /usr/local/bin/crave
-          sudo chmod +x /usr/local/bin/crave
+          curl -sL https://raw.githubusercontent.com/accupara/crave/master/get_crave.sh | bash
+          sudo mv crave /usr/local/bin/
 
       - name: Run Crave Build
         run: |
@@ -28,3 +28,4 @@ jobs:
             source build/envsetup.sh && \
             lunch pixelos_fogos-userdebug && \
             mka bacon"
+    
