@@ -1,4 +1,4 @@
-name: Crave ROM Build
+name: Build PixelOS
 
 on:
   workflow_dispatch:
@@ -8,32 +8,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Crave CLI
+      - name: Install Crave
         run: |
-          mkdir -p ~/.config/crave
-          echo "${{ secrets.CRAVE_CONF }}" > ~/.config/crave/crave.conf
-          
-          # Download Crave binary explicitly
-          curl -sL https://raw.githubusercontent.com/accupara/crave/main/get_crave.sh | bash
-          
-          # Ensure execution permissions and move to binary path
-          chmod +x crave || chmod +x devspace || true
-          sudo mv crave /usr/local/bin/ 2>/dev/null || sudo mv devspace /usr/local/bin/crave 2>/dev/null || true
-          
-          # Verify installation
-          which crave || echo "Crave binary missing!"
+          mkdir -p ~/.crave
+          echo "${{ secrets.CRAVE_CONF }}" > ~/.crave/crave.conf
 
-      - name: DevSpace / Build Execution
+          curl -sL https://raw.githubusercontent.com/accupara/crave/master/get_crave.sh | bash
+          sudo mv crave /usr/local/bin/
+
+      - name: Build PixelOS
         run: |
-          crave run --no-patch -- "
-            repo init -u https://github.com/PixelOS-AOSP/manifest.git -b fifteen --git-lfs
-            crave pull .repo/local_manifests/
-            repo sync -c -j\$(nproc --all) --force-sync --no-clone-bundle --no-tags
-            source build/envsetup.sh
-            lunch pixelos_fogos-userdebug
-            mka bacon
+          crave run --no-patch --clean -- "
+          set -e
+
+          mkdir -p PixelOS
+          cd PixelOS
+
+          repo init -u https://github.com/PixelOS-AOSP/android_manifest.git -b sixteen --git-lfs
+
+          rm -rf .repo/local_manifests
+          git clone https://github.com/adi6545/local_manifests.git .repo/local_manifests
+
+          /opt/crave/resync.sh
+
+          export BUILD_USERNAME=adi6545
+          export BUILD_HOSTNAME=crave
+          export TZ=Asia/Kolkata
+
+          source build/envsetup.sh
+
+          lunch pixelos_fogos-userdebug
+
+          m bacon
           "
-          
