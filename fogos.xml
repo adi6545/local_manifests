@@ -1,34 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <!-- Remote Repositories -->
-  <remote name="lineage" fetch="https://github.com/LineageOS" />
-  <remote name="muppets" fetch="https://github.com/TheMuppets" />
 
-  <!-- Device Trees -->
-  <project path="device/motorola/fogos" 
-           name="android_device_motorola_fogos" 
-           remote="lineage" />
+  <remote name="gitea-jnwsg"
+        fetch="https://gitea.com/JNWSG" />
+  
+  <!-- Device tree for Motorola G34 fogos (your fork) -->
+  <project
+      path="device/motorola/fogos"
+      name="shipukacapri/JNWSG_android_device_motorola_fogos"
+      remote="github"
+      revision="infinity" />
 
-  <project path="device/motorola/sm6375-common" 
-           name="android_device_motorola_sm6375-common" 
-           remote="lineage" />
+ <!-- Common device tree for sm6375 platform (your fork) -->
+  <project
+      path="device/motorola/sm6375-common"
+      name="JNWSG/Lineage_android_device_motorola_sm6375-common"
+      remote="github"
+      revision="16.2" />
 
-  <!-- Kernel Source -->
-  <project path="kernel/motorola/sm6375" 
-           name="android_kernel_motorola_sm6375" 
-           remote="lineage" />
+   <!-- Kernel tree (your fork) -->
+  <project
+      path="kernel/motorola/sm6375"
+      name="JNWSG/Lineage_android_kernel_motorola_sm6375"
+      remote="github"
+      revision="16.2" />
+  
+  <!-- Vendor blobs for fogos (your fork) -->
+  <project
+      path="vendor/motorola/fogos"
+      name="JNWSG/Lineage_android_vendor_motorola_fogos"
+      remote="github"
+      revision="16.2" />
 
-  <!-- Hardware HALs & SEPolicy -->
-  <project path="hardware/motorola" 
-           name="android_hardware_motorola" 
-           remote="lineage" />
+   <!-- Common vendor blobs (your fork) -->
+  <project
+      path="vendor/motorola/sm6375-common"
+      name="JNWSG/Lineage_android_vendor_motorola_sm6375-common"
+      remote="github"
+      revision="16.2" />
 
-  <!-- Vendor Blobs from The Muppets -->
-  <project path="vendor/motorola/fogos" 
-           name="proprietary_vendor_motorola_fogos" 
-           remote="muppets" />
+  <!-- motocam -->
+  <project
+    name="vendor_motorola_MotCamera4"
+    path="vendor/motorola/MotCamera4"
+    remote="gitea-jnwsg"
+    revision="16.0" />
 
-  <project path="vendor/motorola/sm6375-common" 
-           name="proprietary_vendor_motorola_sm6375-common" 
-           remote="muppets" />
+<!-- nfc for fogos -->
+  <project
+      name="LineageOS/android_hardware_samsung_slsi_nfc"
+      path="hardware/samsung_slsi/nfc"
+      remote="github"
+      revision="lineage-23.2" />
+
+<!-- dolby for moto -->
+  <project
+    name="JNWSG/hardware_dolby"
+    path="hardware/dolby"
+    remote="github"
+    revision="16.0" />
+  
+<!-- Motorola hardware (contains hardware/motorola/sepolicy/qti/SEPolicy.mk) -->
+<project
+    name="JNWSG/Lineage_hardware_motorola"
+    path="hardware/motorola"
+    remote="github"
+    revision="16.2" />
+
+<!-- QCOM vendor SEPolicy (contains device/qcom/sepolicy_vndr/SEPolicy.mk) -->
+  
+
+<!-- QCOM policy helpers: hardware/qcom/sepolicy
+     Some BoardConfig/common makefiles expect hardware/qcom policy helpers. -->
+
 </manifest>
