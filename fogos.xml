@@ -6,7 +6,7 @@
       path="device/motorola/fogos"
       name="adi6545/JNWSG_android_device_motorola_fogos"
       remote="github"
-      revision="16" />
+      revision="infinity" />
 
   <!-- Common device tree for sm6375 platform -->
   <project
