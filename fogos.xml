@@ -7,9 +7,9 @@
   <!-- Device tree for Motorola G34 fogos -->
   <project
       path="device/motorola/fogos"
-      name="adi6545/JNWSG_android_device_motorola_fogos"
+      name="adi6545/android_device_motorola_fogos"
       remote="github"
-      revision="axion" />
+      revision="sixteen" />
 
   <!-- Common device tree for sm6375 platform -->
   <project
