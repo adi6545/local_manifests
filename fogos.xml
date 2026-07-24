@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
-  <remote name="github"
-  fetch="https://github.com" />
   
   <!-- Device tree for Motorola G34 fogos -->
   <project
       path="device/motorola/fogos"
       name="adi6545/JNWSG_android_device_motorola_fogos"
       remote="github"
-      revision="axion" />
+      revision="pixelos" />
 
   <!-- Common device tree for sm6375 platform -->
   <project
