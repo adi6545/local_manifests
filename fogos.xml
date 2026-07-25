@@ -57,7 +57,7 @@
     revision="lineage-23.2" />
 
   <project
-    name="adi6545/LineageOS/android_lineage-sdk"
+    name="adi6545/android_lineage-sdk"
     path="lineage-sdk"
     remote="github" 
     revision="lineage-23.2" />
