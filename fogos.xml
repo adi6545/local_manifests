@@ -43,12 +43,8 @@
       remote="github"
       revision="lineage-23.2" />
 
-  <!-- dolby for moto -->
   <project
-    name="adi6545/hardware_dolby"
-    path="hardware/dolby"
-    remote="github"
-    revision="16.0" />
+    name="adi6545
   
   <!-- Motorola hardware -->
   <project
@@ -57,8 +53,8 @@
     remote="github"
     revision="lineage-23.2" />
 
-  <project path="adi6545/lineage-sdk" 
-           name="LineageOS/android_lineage-sdk" 
+  <project path="lineage-sdk" 
+           name="adi6545/LineageOS/android_lineage-sdk" 
            remote="github" 
            revision="lineage-23.2" />
 
