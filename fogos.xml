@@ -27,7 +27,7 @@
       path="vendor/motorola/fogos"
       name="adi6545/byben_proprietary_vendor_motorola_fogos"
       remote="github"
-      revision="sixteen-qpr2" />
+      revision="infinity" />
 
   <!-- Common vendor blobs -->
   <project
