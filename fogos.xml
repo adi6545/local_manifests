@@ -55,7 +55,7 @@
     name="adi6545/byben_vendor_motorola_motocamera"
     path="vendor/motorola/motocamera"
     remote="github"
-    revision="lineage-23.2" />
+    revision="sixteen-qpr2" />
 
     <!-- Lineage SDK -->
   <project
