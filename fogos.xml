@@ -6,7 +6,7 @@
       path="device/motorola/fogos"
       name="adi6545/byben_android_device_motorola_fogos"
       remote="github"
-      revision="infinity-ex" />
+      revision="lunaris" />
 
   <!-- Common device tree for sm6375 platform -->
   <project
