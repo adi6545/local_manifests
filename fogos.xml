@@ -20,7 +20,7 @@
     path="kernel/motorola/sm6375"
     name="adi6545/android_kernel_motorola_sm6375"
     remote="github"
-    revision="16.2" />
+    revision="sixteen-qpr2" />
   
   <!-- Vendor blobs for fogos -->
   <project
