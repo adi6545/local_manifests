@@ -57,4 +57,11 @@
     remote="github"
     revision="sixteen-qpr2" />
 
+  <!-- Lunaris Dolby -->
+  <project
+    name="adi6545/android_packages_apps_LunarisDolby"
+    path="packages/apps/LunarisDolby"
+    remote="github"
+    revision="sixteen-qpr2" />
+
 </manifest>
