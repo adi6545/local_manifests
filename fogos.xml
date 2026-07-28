@@ -59,9 +59,9 @@
 
   <!-- Lunaris Dolby -->
   <project
-    name="adi6545/android_packages_apps_LunarisDolby"
-    path="packages/apps/LunarisDolby"
+    name="adi6545/hardware_dolby"
+    path="hardware/dolby"
     remote="github"
-    revision="sixteen-qpr2" />
+    revision="16.0" />
 
 </manifest>
