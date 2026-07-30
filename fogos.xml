@@ -20,12 +20,12 @@
     path="kernel/motorola/sm6375"
     name="adi6545/android_kernel_motorola_sm6375"
     remote="github"
-    revision="sixteen-qpr2" />
+    revision="axion" />
   
   <!-- Vendor blobs for fogos -->
   <project
       path="vendor/motorola/fogos"
-      name="adi6545/byben_proprietary_vendor_motorola_fogos"
+      name="adi6545/proprietary_vendor_motorola_fogos"
       remote="github"
       revision="infinity" />
 
