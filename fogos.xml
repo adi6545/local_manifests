@@ -18,9 +18,9 @@
     <!-- Kernel tree -->
   <project
     path="kernel/motorola/sm6375"
-    name="adi6545/android_kernel_motorola_sm6375"
+    name="zedisspp/kernel_motorola_sm6375"
     remote="github"
-    revision="axion" />
+    revision="lineage-23.2" />
   
   <!-- Vendor blobs for fogos -->
   <project
