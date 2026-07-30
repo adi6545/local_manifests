@@ -6,7 +6,7 @@
       path="device/motorola/fogos"
       name="adi6545/byben_android_device_motorola_fogos"
       remote="github"
-      revision="infinity-ex" />
+      revision="axion" />
 
   <!-- Common device tree for sm6375 platform -->
   <project
@@ -57,11 +57,4 @@
     remote="github"
     revision="sixteen-qpr2" />
   
-  <!-- Lunaris Dolby -->
-  <project
-    name="adi6545/android_packages_apps_LunarisDolby"
-    path="packages/apps/LunarisDolby"
-    remote="github"
-    revision="sixteen-qpr2" />
-
 </manifest>
