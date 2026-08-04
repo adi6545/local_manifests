@@ -25,9 +25,9 @@
   <!-- Vendor blobs for fogos -->
   <project
       path="vendor/motorola/fogos"
-      name="adi6545/byben_proprietary_vendor_motorola_fogos"
+      name="adi6545/proprietary_vendor_motorola_fogos"
       remote="github"
-      revision="infinity" />
+      revision="lineage-23.2" />
 
   <!-- Common vendor blobs -->
   <project
@@ -56,12 +56,5 @@
     path="vendor/motorola/motocamera"
     remote="github"
     revision="sixteen-qpr2" />
-
-  <!-- Lunaris Dolby -->
-  <project
-    name="adi6545/hardware_dolby"
-    path="hardware/dolby"
-    remote="github"
-    revision="16.0" />
 
 </manifest>
